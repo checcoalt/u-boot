@@ -40,8 +40,9 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        queries: |
-          - uses: ./.github/codeql/custom/taint-analysis.ql
+        packs: |
+          - ./.github/codeql/custom
+
 
     - if: matrix.build-mode == 'manual'
       shell: bash
